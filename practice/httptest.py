@@ -2,10 +2,10 @@
 # http://192.168.1.88:8080/app/resource/success.html?
 import urllib
 import urllib2
-fp=urllib.urlopen("http://192.168.1.88:8080/app/resource/success.html")
+# fp=urllib.urlopen("http://192.168.1.88:8080/app/resource/success.html")
 class HttpRepuest():
-    def urlcode(self,data):
-        return urllib2.quote(str(data))
+    # def urlcode(self,data):
+    #     return urllib2.quote(str(data))
 
     # def httpreq(self):
     #     # if method == 'POST':
@@ -18,16 +18,16 @@ class HttpRepuest():
     #         result = response.read()
     #         print  response
 
-    def GetUserInfo(self,uname,password):
+    def GetUserInfo(self):
         # if method == 'GET':
-            url = 'http://www.106818.com/ws/SelSum.aspx?CorpID='+self.urlcode(uname)+'&Pwd='+self.urlcode(password)
+            url = 'http://www.106818.com/ws/Send.aspx?CorpID=SY0134&Pwd=82342367&Mobile=18638135380&Content=hello&Cell=*&SendTime=*'
             # result = urllib2.urlopen(url).read()
             result = urllib2.urlopen(url).read()
             # return result
             print result
 pp=HttpRepuest()
 # pp.httpreq()
-pp.GetUserInfo('SY0134',82342367)
+pp.GetUserInfo()
 
 
 

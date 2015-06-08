@@ -3,6 +3,7 @@ from pyadb import ADB
 from appium import webdriver
 import os
 from time import sleep
+
 desired_caps={"platformName":"Android","platformVersion":"4.4.4","deviceName":"HUAWEI C8817E","appPackage":"com.bd.community","appActivity":"com.bd.community.SplashActivity",'unicodeKeyboard':True,
 'resetKeyboard':True}
 # desired_caps={"platformName":"Android","platformVersion":"4.4.4","deviceName":"SM-G3608","appPackage":"com.bd.community","appActivity":"com.bd.community.SplashActivity"}
