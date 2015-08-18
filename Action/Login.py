@@ -2,10 +2,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import Case
-from Base.BasePage import BasePage
+from Base import WebBasePage
 import GegNeedOperateElment,GetSendData
 import time
-class Login(BasePage):
+class Login(WebBasePage):
 
 
 
