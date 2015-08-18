@@ -9,8 +9,16 @@ class APPBasePage(object):
 
 
     def find_element(self,how,what):
-        print how,what
+        # print how,what
         return self.driver.find_element(how,what)
+
+    def find_elements(self,how,what,index):
+        # print how,what
+        return self.driver.find_elements(how,what)[index]
+
+    def get_text(self,located_element):
+
+        return located_element.text
 
     def click_element(self,located_element):
 
@@ -20,9 +28,8 @@ class APPBasePage(object):
     def send_data(self,located_element,send_data):
         print send_data
         located_element.send_keys(send_data)
-        # if type(send_data)=='float':
-        #     located_element.send_keys(int(send_data))
-        # else:
-        #     located_element.send_keys(send_data)
-        # self.driver.hide_keyboard()
-        sleep(self.timeWait)
+        try:
+            self.driver.hide_keyboard()
+        except:
+            print "没有弹出键盘"
+        # sleep(self.timeWait)
