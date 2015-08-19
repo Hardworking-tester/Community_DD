@@ -3,7 +3,7 @@ from Data import ReadExcel,get_number_by_data,Get_ExcelPath_SheetName
 from  appium.webdriver.common.mobileby import By
 class GetElement():
 
-    #得到定位的元素列表以及定位所需的数据
+    #得到定位的元素列表以及定位所需的数据,返回的内容包括：元素名称、定位方式，定位所需数据，操作方式，是否需要先定位到元素列表之后再去定位元素
     def getElementList(self,excel_path,name_sheet_list):
         zhuce_excelpath=excel_path
         zhuce_sheet_name=name_sheet_list[0]
