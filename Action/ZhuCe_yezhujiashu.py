@@ -3,14 +3,15 @@ from appium import webdriver
 from Base.APPBasePage import APPBasePage
 from Data import GetData,GetElement,ReadExcel,Get_ExcelPath_SheetName
 
-class ZhuCe(APPBasePage):
+#业主家属注册
+class ZhuCeYeZhuJiaShu(APPBasePage):
 
     #得到定位元素的数据：元素名称、定位方式、定位数据、操作方法、是否需要定位到多个元素组后再次定位该元素
     def getoperateElementMethodAndData1(self):
         path_excel=Get_ExcelPath_SheetName.Get_ExcelPath_SheetName().getExcelPath("F:\\Community_DD\\Data\\zhuce.xls","excelpath_sheetname")
         name_sheet=(Get_ExcelPath_SheetName.Get_ExcelPath_SheetName().GetSheetName("F:\\Community_DD\\Data\\zhuce.xls","excelpath_sheetname"))[0]
         how_what_list=GetElement.GetElement().getElementList(path_excel,name_sheet)
-        print how_what_list
+        # print how_what_list
         for method_data_list in how_what_list:
             app_object=method_data_list[0]
             how=method_data_list[1]
@@ -22,11 +23,12 @@ class ZhuCe(APPBasePage):
                 self.locateElement(app_object,how,what,operate_method)
             else:
                 self.locateElements(app_object,how,what,operate_method,moreLocateFlag)
+        return self.driver
     #定位单个元素
     def locateElement(self,app_object,how,what,operate_method):
         located_element=self.find_element(how,what)
-        print located_element
-        print operate_method
+        # print located_element
+        # print operate_method
         if operate_method=='click':
             self.extend_click_element(located_element)
         elif operate_method=='sendkey':
@@ -36,8 +38,8 @@ class ZhuCe(APPBasePage):
     #定位元素组
     def locateElements(self,app_object,how,what,operate_method,index):
         located_element=self.find_elements(how,what,index)
-        print located_element
-        print operate_method
+        # print located_element
+        # print operate_method
         if operate_method=='click':
             self.extend_click_element(located_element)
         elif operate_method=='sendkey':
