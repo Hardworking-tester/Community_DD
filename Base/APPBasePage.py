@@ -31,5 +31,5 @@ class APPBasePage(object):
         try:
             self.driver.hide_keyboard()
         except:
-            print "没有弹出键盘"
+            pass
         # sleep(self.timeWait)
