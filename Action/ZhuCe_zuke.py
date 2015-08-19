@@ -3,8 +3,8 @@ from appium import webdriver
 from Base.APPBasePage import APPBasePage
 from Data import GetData,GetElement,ReadExcel,Get_ExcelPath_SheetName
 
-#业主家属注册
-class ZhuCeYeZhuJiaShu(APPBasePage):
+#租客注册
+class ZhuCeZuKe(APPBasePage):
 
     #得到定位元素的数据：元素名称、定位方式、定位数据、操作方法、是否需要定位到多个元素组后再次定位该元素
     def getoperateElementMethodAndData1(self,path_excel,name_sheet_list):
