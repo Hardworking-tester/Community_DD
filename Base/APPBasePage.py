@@ -5,7 +5,7 @@ class APPBasePage(object):
     def __init__(self,driver):
         self.driver=driver
         self.timeWait=2
-        print self.driver
+        # print self.driver
 
 
     def find_element(self,how,what):
@@ -25,6 +25,9 @@ class APPBasePage(object):
         located_element.click()
         sleep(self.timeWait)
 
+    def huaDong(self,startX,startY,endX,endY):
+        self.driver.swipe(startX,startY,endX,endY)
+        sleep(self.timeWait)
     def send_data(self,located_element,send_data):
         print send_data
         located_element.send_keys(send_data)

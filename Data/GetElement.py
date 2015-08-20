@@ -29,7 +29,7 @@ class GetElement():
         old_how=sheeet.cell_value(row_col_index[0],(row_col_index[1]+1))
         what=sheeet.cell_value(row_col_index[0],(row_col_index[1]+2))
         #在这里增加一个字典是因为如果直接把By.ID写在excel里的话，取出来不能用
-        locate_method_dict={'id':By.ID,'css':By.CLASS_NAME,'xpath':By.XPATH,'linktext':By.LINK_TEXT}
+        locate_method_dict={'id':By.ID,'css':By.CLASS_NAME,'xpath':By.XPATH,'linktext':By.LINK_TEXT,'swipe':'swipe'}
         new_how=locate_method_dict[old_how]
         how_what=[]
         how_what.append(element)

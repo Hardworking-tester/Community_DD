@@ -17,7 +17,13 @@ class LoginTest(unittest.TestCase):
         excel_path=Get_ExcelPath_SheetName.Get_ExcelPath_SheetName().getExcelPath("F:\\Community_DD\\Data\\login.xls","excelpath_sheetname")
         sheet_name_list=Get_ExcelPath_SheetName.Get_ExcelPath_SheetName().GetSheetName("F:\\Community_DD\\Data\\login.xls","excelpath_sheetname")
         driver=pp.getElement_Method_Data(excel_path,sheet_name_list)
-        print driver
+        self.assertLoginSuccess(driver)
+    def assertLoginSuccess(self,driver):
+
+        if driver.find_element_by_id("com.dinghe.dingding.community:id/tab_mine"):
+            print '登录成功'
+        else:
+            print '登录失败'
 
     def tearDown(self):
         self.driver.quit()
