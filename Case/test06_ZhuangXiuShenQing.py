@@ -26,12 +26,10 @@ class ZhuangXiuShenQingTest(unittest.TestCase):
         driver.find_element_by_xpath("//android.widget.TextView[contains(@text,'装修记录')]").click()
         count_jilu=driver.find_elements_by_id("com.dinghe.dingding.community:id/tv_content")
         if count_jilu.__len__()>0:
-            print "装修申请提交成功"
+            print "success submit zhuangxiushenqing"
         else:
-            print "装修申请提交失败"
+            print "failed submit zhuangxiushenqing"
         driver.keyevent(4)
     def tearDown(self):
         self.driver.quit()
 
-if __name__=='__main__':
-    unittest.main()

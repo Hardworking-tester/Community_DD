@@ -23,13 +23,11 @@ class YaoQingFangKeTest(unittest.TestCase):
         driver.keyevent(4)
         element_count=driver.find_elements_by_id("com.dinghe.dingding.community:id/tv_caozuo")
         if element_count.__len__()>0:
-            print "邀请访客成功"
+            print "success yaoqingfangke"
         else:
-            print "邀请访客失败"
+            print "failed yaoqingfangke"
 
 
     def tearDown(self):
         self.driver.quit()
 
-if __name__=='__main__':
-    unittest.main()

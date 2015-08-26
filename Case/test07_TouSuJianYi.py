@@ -1,21 +1,21 @@
 # encoding:utf-8
 import unittest
-from Action import GongGongBaoXiu
+from Action import TouSuJianYi
 from Data import get_number_by_data,ReadExcel,GetElement,Get_ExcelPath_SheetName
 from appium import webdriver
 from time import sleep
-class GongGongBaoXiuTest(unittest.TestCase):
+class TouSuJianYiTest(unittest.TestCase):
 
     def setUp(self):
         desired_caps={'platformName':'Android','platformVersion':'4.4','deviceName':'SM-G3608','appPackage':'com.dinghe.dingding.community','appActivity':'SplashActivity','unicodeKeyboard':True,'resetKeyboard':True}
         self.driver=webdriver.Remote('http://127.0.0.1:4723/wd/hub',desired_caps)
-        self.s=GongGongBaoXiu.GongGongBaoXiu(self.driver)
+        self.s=TouSuJianYi.TouSuJianYi(self.driver)
         sleep(10)
 
-    def testGongGongBaoXiu(self):
+    def testTouSuJianYi(self):
         pp=self.s
-        excel_path=Get_ExcelPath_SheetName.Get_ExcelPath_SheetName().getExcelPath("F:\\Community_DD\\Data\\gonggongbaoxiu.xls","excelpath_sheetname")
-        sheet_name_list=Get_ExcelPath_SheetName.Get_ExcelPath_SheetName().GetSheetName("F:\\Community_DD\\Data\\gonggongbaoxiu.xls","excelpath_sheetname")
+        excel_path=Get_ExcelPath_SheetName.Get_ExcelPath_SheetName().getExcelPath("F:\\Community_DD\\Data\\tousujianyi.xls","excelpath_sheetname")
+        sheet_name_list=Get_ExcelPath_SheetName.Get_ExcelPath_SheetName().GetSheetName("F:\\Community_DD\\Data\\tousujianyi.xls","excelpath_sheetname")
         driver=pp.getElement_Method_Data(excel_path,sheet_name_list)
         print driver
         self.assertSuccess(driver)
@@ -23,15 +23,12 @@ class GongGongBaoXiuTest(unittest.TestCase):
         driver.find_element_by_id("com.dinghe.dingding.community:id/tab_mine").click()
         driver.find_element_by_xpath("//android.widget.TextView[contains(@text,'我的账号')]").click()
         sleep(2)
-        driver.find_element_by_xpath("//android.widget.TextView[contains(@text,'公共报修')]").click()
+        driver.find_element_by_xpath("//android.widget.TextView[contains(@text,'投诉记录')]").click()
         count_jilu=driver.find_elements_by_id("com.dinghe.dingding.community:id/tv_content")
         if count_jilu.__len__()>0:
-            print "公共报修申请提交成功"
+            print "success submit tousujianyi"
         else:
-            print "公共报修申请提交失败"
+            print "failed submit tousujianyi"
         driver.keyevent(4)
     def tearDown(self):
         self.driver.quit()
-
-if __name__=='__main__':
-    unittest.main()
